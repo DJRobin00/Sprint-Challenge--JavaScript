@@ -16,10 +16,11 @@ function Consume(a, b, callback){
   * Create a function named greeting that accepts a first and last name and returns 
   * "Hello first-name last-name, nice to meet you!"
 */
-function Add(){
-  return callback(a, b)
+function Add(a, b, callback){
+  return callback(a+b)
 }
-function Multiply(){
+function Multiply(a, b, callback){
+  return callback(a*b)
 
 }
 function Greeting(){
@@ -27,9 +28,9 @@ function Greeting(){
 }
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
-// console.log(consume(2, 2, add)); // 4
-// console.log(consume(10, 16, multiply)); // 160
-// console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+console.log(consume(2, 2, add)); // 4
+console.log(consume(10, 16, multiply)); // 160
+console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 
 // ==== Closures ==== 
@@ -37,6 +38,10 @@ function Greeting(){
 // Explain in your own words why nestedfunction can access the variable internal.
 
 // Explanation: 
+
+// Inheritance. variables established outside or previously can be accessed by nested or inside functions.
+// However, unless the variable is returned by the nested function, it cannot be accessed afterwards (by following functions 
+// or methods.)
 
 
 const external = "I'm outside the function";
