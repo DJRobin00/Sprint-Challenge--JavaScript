@@ -30,13 +30,61 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. Describe the biggest difference between `.forEach` & `.map`.
 
+    `.map` returns a new array while `.forEach` changes or rearranges the data of an already existing array
+
 2. What is the difference between a function and a method?
+
+    A function stands on its own or can be called to a variable. A method is a function on an existing function or object key. Ex1: Car.protoype.drive = function(){}  <== `.drive drive = function(){}` is the method.
+         Ex2: var person = { 
+             name: name; 
+             age: age;
+             speak: function(){ 
+                 return `Hello.`
+                 }}
+
+                `speak: function(){ 
+                 return `Hello.`}` is the method.
+
 
 3. What is closure?
 
 4. Describe the four rules of the 'this' keyword.
 
+    Global Binding - "this" keyword refers to the entire console--potentially 
+      the whole JavaScript language--as one object.
+      Ex: console.log(this) <==run by itself.
+
+    Implicit Binding - "this" refers to the principle of a called function; 
+      the object name--to the left of the dot method.
+
+    New Binding - "this" refers to an instance of an object created within a constructor function.
+      Ex: function Car(model, mpg){
+          this.model = model;
+          this.milesPerGallon = mpg;
+          this.tank = 0;
+          this.odometer = 0;
+          };
+
+    Explicit Binding - "this" refers to an instance of a constructor function `a new ConstFun()` when
+      the new instance is used to overwrite properties of the constructor function using .call and .appy.
+        Ex: const GamaPowered = function(name, alias) {
+              this.greeting = 'Code Name: ';
+              this.name = name;
+              this.alias = alias;
+              this.speak = function() {
+                console.log(this.name + ". " + this.greeting + this.alias);
+                console.log(this);
+              };
+            }
+            const richardJones = new GamaPowered('Richard Jones', 'A-Bomb');
+            const bruceBanner = new GamaPowered('Bruce Banner', 'The Hulk');
+
+            richardJones.speak.call(bruceBanner); 
+            richardJones.speak.apply(bruceBanner);
+
 5. Why do we need super() in an extended class?
+
+    super() is used to call the constructor of the parent class into the extended class.
 
 ## Project Set up
 
