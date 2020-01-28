@@ -116,7 +116,7 @@ displayNames will be an array of strings, and each string should follow this pat
 
 */
 
-const displayNames = zooAnimals.forEach(function(){
+const displayNames = zooAnimals.forEach(() => {
   return `Name: ${animal_name}, Scientific: ${scientific_name}.`
 });
 
