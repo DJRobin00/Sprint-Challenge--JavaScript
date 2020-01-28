@@ -25,11 +25,11 @@ console.log(tyra.period);
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
-tyra.roar = function(){
+tyra.roar = () => {
   return 'RAWERSRARARWERSARARARRRR!';
 };
 
-console.log(tyra.roar);
+console.log(tyra.roar());
 
 
 // ==== Arrays ====
@@ -116,8 +116,8 @@ displayNames will be an array of strings, and each string should follow this pat
 
 */
 
-const displayNames = zooAnimals.forEach(() => {
-  return `Name: ${animal_name}, Scientific: ${scientific_name}.`
+const displayNames = zooAnimals.forEach((animal) => {
+  return `Name: ${animal.animal_name}, Scientific: ${animal.scientific_name}.`
 });
 
 // const displayNames = zooAnimals.map(function(animals){

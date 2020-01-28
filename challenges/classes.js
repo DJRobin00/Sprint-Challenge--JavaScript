@@ -1,21 +1,25 @@
 // 1. Copy and paste your prototype in here and refactor into class syntax.
 
 class CuboidMaker {
-    constructor(length, width, height){
-    this.length = length;
-    this.widht = width;
-    this.height = height;
+    constructor(dimensions){
+        this.length = dimensions.length;
+        this.width = dimensions.width;
+        this.height = dimensions.height;
     };
-    volume = function (length, width, height) {
-        return length * width * height;
+    volume() {
+        return this.length * this.width * this.height;
     };
-    surfaceArea = function (length, width, height) {
-        return 2 * length * width + length * height + width * height;
+    surfaceArea() {
+        return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
     };
 
-}
+};
 
-const cuboid = new CuboidMaker(4, 5, 5);
+const cuboid = new CuboidMaker({
+    length: 4, 
+    width: 5, 
+    height: 5
+});
 
 // Test your volume and surfaceArea methods by uncommenting the logs below:
 console.log(cuboid.volume()); // 100
@@ -26,14 +30,14 @@ console.log(cuboid.surfaceArea()); // 130
 // the dimension properties from CuboidMaker.  Test your work by logging out your volume and surface area.
 
 class CubeMaker extends CuboidMaker {
-    constructor(a){
-        super(a);
-    }
-    volume = function (a) {
-        return Math.pow(a, 3);
+    constructor(dimensions){
+        super(dimensions);
     };
-    surfaceArea = function (a) {
-        return 6 * Math.pow(a, 2)
+    volume() {
+        return Math.pow(dimensions, 3);
+    };
+    surfaceArea() {
+        return 6 * Math.pow(dimensions, 2);
     };
 
 };
