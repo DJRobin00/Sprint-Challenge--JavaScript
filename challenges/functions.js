@@ -6,9 +6,9 @@
   * The last parameter accepts a callback
   * The consume function should return the invocation of cb, passing a and b into cb as arguments
 */
-function Consume(a, b, callback){
+const consume = function (a, b, callback){
   return callback(a, b);
-}
+};
 
 /* Step 2: Create several functions to callback with consume();
   * Create a function named add that returns the sum of two numbers
@@ -16,16 +16,18 @@ function Consume(a, b, callback){
   * Create a function named greeting that accepts a first and last name and returns 
   * "Hello first-name last-name, nice to meet you!"
 */
-function Add(a, b, callback){
-  return callback(a+b)
-}
-function Multiply(a, b, callback){
-  return callback(a*b)
+const add = function (a, b){
+  return a + b;
+};
 
-}
-function Greeting(){
-  return `Hello ${first-name} ${last-name}, nice to meet you!`
-}
+const multiply = function (a, b){
+  return a * b;
+
+};
+
+const greeting = function (first_name, last_name){
+  return `Hello ${first_name} ${last_name}, nice to meet you!`;
+};
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
 console.log(consume(2, 2, add)); // 4

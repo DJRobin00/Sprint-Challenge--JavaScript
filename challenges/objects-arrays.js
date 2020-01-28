@@ -25,10 +25,11 @@ console.log(tyra.period);
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
-Tyra.prototype.roar = function(){
+tyra.roar = function(){
   return 'RAWERSRARARWERSARARARRRR!';
-}
-console.log(roar);
+};
+
+console.log(tyra.roar);
 
 
 // ==== Arrays ====
@@ -76,7 +77,14 @@ console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called 
 unisWithUni that contains them all. This will be an array of objects. Log the result. */
-const unisWithUni = graduates.find('uni');
+const unisWithUni = [];
+
+for (let i = 0; i < graduates.length; i++) {
+  if (graduates[i].university.includes("Uni")) {
+    unisWithUni.push(graduates[i].university);
+  };
+
+}
 
 console.log(unisWithUni);
 
@@ -127,10 +135,9 @@ Log the resut.
 */
 
 const lowCaseAnimalNames = zooAnimals.map(i => {
-  return i.animal_name;
+  return i.animal_name.toLowerCase();
 });
 
-lowCaseAnimalNames.toLowerCase();
 console.log(lowCaseAnimalNames);
 
 /* Request 3: .filter() 
@@ -139,7 +146,7 @@ The zoos are concerned about animals with a lower population count. Using filter
 called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 */
-const lowPopulationAnimals = zooAnimals.filter(function(animals){
+const lowPopulationAnimals = zooAnimals.filter((animals) => {
   return animals.population < 5
 });
 console.log(lowPopulationAnimals);
@@ -151,7 +158,7 @@ all the zoos using the .reduce() method. Remember the reduce method takes two ar
 (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal =  zooAnimals.reduce(function(total, animals){
+const populationTotal =  zooAnimals.reduce((total, animals) => {
       return total += animals.population
   }, 0);
 
